@@ -14,17 +14,23 @@
             <a href="https://www.linkedin.com/home/?originalSubdomain=lk"><i class="fab fa-linkedin-in fa-lg white-text mr-md-5 mr-3 fa-2x"> </i></a>
             <a href="https://www.instagram.com"><i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i></a>
             <a href="https://www.pinterest.com"><i class="fab fa-pinterest fa-lg white-text fa-2x"> </i></a>
+            
+           <v-img height="156" width="156" src="https://i.imgur.com/QRujpM1.png"></v-img>
           </div>
         </mdb-col>
       </mdb-row>
         </v-row>
+
+        
+
+
+
     </mdb-container>
     <div class="footer-copyright text-center py-3">
-        <v-layout row>
-            <v-flex xs12 class="text-center">
-                <v-img height="150" width="150" src="https://i.imgur.com/QRujpM1.png"></v-img>
-            </v-flex>
-        </v-layout>
+        
+       
+
+
         <v-row align="center">
             <v-flex class="text-center">
       <mdb-container fluid>
