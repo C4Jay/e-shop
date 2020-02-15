@@ -9,7 +9,7 @@
         <v-layout row wrap>
             <v-flex xs12 sm4 class="text-center ">
                 <v-hover v-slot:default="{ hover }">
-                <v-card elevation="19">
+                <v-card elevation="19" to="/earrings">
                 <v-img height="498" src="https://i.pinimg.com/736x/44/23/72/442372d66b37e9d909b6dc092e090aeb.jpg">
                   <v-expand-transition>
                 <div
@@ -26,7 +26,7 @@
             </v-flex>
             <v-flex xs12 sm4 class="text-center ">
                 <v-hover v-slot:default="{ hover }">
-                <v-card elevation="19">
+                <v-card elevation="19" to="/earrings">
                 <v-img height="498" src="https://www.dhresource.com/0x0s/f2-albu-g5-M00-34-15-rBVaJFk4uSOAGEMUAAhFTmoqm88727.jpg/multi-color-8mm-polymer-clay-bracelets-for.jpg">
                 <v-expand-transition>
                 <div
@@ -44,7 +44,7 @@
             <v-flex xs12 sm4 class="text-center ">
                 
                 <v-hover v-slot:default="{ hover }">
-                <v-card elevation="19">
+                <v-card elevation="19" to="/earrings">
                 <v-img height="498" src="https://www.papernstitchblog.com/wp-content/uploads/2018/06/how-to-make-clay-jewelry-earrings-feature.jpg">
                 <v-expand-transition>
                 <div

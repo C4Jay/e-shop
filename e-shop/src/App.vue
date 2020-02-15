@@ -5,10 +5,11 @@
         <v-content transition="slide-x-transition">
              
       <router-view></router-view>
-            <home-foot></home-foot>
+            
         <!--    <home-foot1></home-foot1>
             -->
     </v-content>
+    <home-foot></home-foot>
   </v-app>
 </template>
 
