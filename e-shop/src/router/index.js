@@ -23,6 +23,12 @@ const routes = [
     name: 'earrings',
     component: () => import('../components/Earrings.vue')
 },
+
+{
+  path: '/createone',
+  name: 'createone',
+  component: () => import('../components/CreateOne.vue')
+},
 ]
 
 const router = new VueRouter({
