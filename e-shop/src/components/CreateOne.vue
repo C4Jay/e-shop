@@ -1,6 +1,6 @@
 <template>
-<v-parallax height="969" src="https://i.imgur.com/M0BwxSq.png">
-<v-container>
+<!--<v-parallax height="969" src="https://i.imgur.com/M0BwxSq.png">  -->
+<v-container class="main">
 <v-layout row class="form"> 
     <v-flex xs12 sm6 offset-sm3>
       
@@ -11,7 +11,7 @@
                 <v-container>  
                     
                     <v-layout row>
-                        <v-flex xs12 class="text-xs-center display-1 font-weight-black my-5">Sign-In</v-flex>
+                        <v-flex xs12 class="text-xs-center display-1 font-weight-black my-5">Place Order</v-flex>
                     </v-layout>
 
 
@@ -37,21 +37,19 @@
                             </v-flex>
                         </v-layout>
 
+                        
                         <v-layout row>
                             <v-flex xs12 offeset-sm3>
-                                <v-text-field
-                                prepend-icon="mdi-person"
-                                    name="item"
+                                <v-col class="d-flex" cols="12" sm="6">
+                                    <v-select
+                                    :items="items"
                                     label="Item"
-                                    id="item"
+                                    solo
                                     v-model="item"
-                                    type="text"
-                                    required
-                                    >
-                                </v-text-field>
+                                    ></v-select>
+                                </v-col>
                             </v-flex>
                         </v-layout>
-
 
                         <v-layout row>
                             <v-flex xs12 offeset-sm3>
@@ -73,7 +71,7 @@
                             <v-flex xs12 offeset-sm3>
                                 <v-col class="d-flex" cols="12" sm="6">
                                     <v-select
-                                    :items="items"
+                                    :items="numbers"
                                     label="number of items"
                                     solo
                                     v-model="number"
@@ -109,7 +107,7 @@
                                 <v-text-field
                                 prepend-icon="mdi-person"
                                     name="fullamount"
-                                    label="Money"
+                                    label="Total"
                                     id="fullamount"
                                     v-model="fullamount"
                                     type="text"
@@ -118,7 +116,13 @@
                             </v-flex>
                         </v-layout>
 
-                       
+                           <v-layout row>
+                            <v-flex xs12 class="text-xs-center">
+                                <v-btn color="yellow" @click="create">
+                                    Place Order</v-btn>
+
+                            </v-flex>
+                        </v-layout>
 
                         
                         
@@ -141,7 +145,7 @@
 
 </v-layout>
 </v-container>
-</v-parallax>
+<!--</v-parallax>  -->
 </template>
 
 <script>
@@ -151,7 +155,8 @@ export default {
 
     data: () => ({
 
-        items: ['1', '2', '3', '4', '5', '6', '7'],
+        numbers: ['1', '2', '3', '4', '5', '6', '7'],
+        items: ['item_1', 'item_2', 'item_3', 'item_4', 'item_5', 'item_6', 'item_7'],
         items1: ['y', 'u', 'i', 'o'],
 
         sign: {},
@@ -180,7 +185,7 @@ export default {
 
             sum() {
               this.fullamount = (this.number * 42);
-              this.create()
+              
             }
 
 
@@ -197,6 +202,10 @@ export default {
 .form {
     position: relative;
     top: 169px
+}
+
+.main {
+    min-height: 900px
 }
 
 </style>
