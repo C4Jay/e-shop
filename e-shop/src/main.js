@@ -6,6 +6,15 @@ import vuetify from './plugins/vuetify';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import firebase from 'firebase';
 
+import Vuetify from 'vuetify/lib'
+
+Vue.use(Vuetify)
+
+export default new Vuetify({
+  icons: {
+    iconfont: 'mdiSvg', // 'mdi' || 'mdiSvg' || 'md' || 'fa' || 'fa4' || 'faSvg'
+  },
+})
 
 
 Vue.config.productionTip = false

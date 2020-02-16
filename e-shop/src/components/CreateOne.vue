@@ -17,7 +17,7 @@
 
                     <v-form @submit.prevent="sum">
                         
-                        <v-layout row>
+                        <!-- <v-layout row>
                             <v-flex xs12 offeset-sm3>
                                 <v-text-field
                                 prepend-icon="person"
@@ -25,17 +25,22 @@
                                     label="price"
                                     id="price"
                                     v-model="price"
-                                    type="text"
                                     
                                     >
                                 </v-text-field>
+                            </v-flex>
+                        </v-layout> -->
+
+                        <v-layout row>
+                            <v-flex xs12 offset-sm3 class="text-center">
+                                price(01): $42
                             </v-flex>
                         </v-layout>
 
                         <v-layout row>
                             <v-flex xs12 offeset-sm3>
                                 <v-text-field
-                                prepend-icon="person"
+                                prepend-icon="mdi-person"
                                     name="item"
                                     label="Item"
                                     id="item"
@@ -46,6 +51,23 @@
                                 </v-text-field>
                             </v-flex>
                         </v-layout>
+
+
+                        <v-layout row>
+                            <v-flex xs12 offeset-sm3>
+                                <v-text-field
+                                prepend-icon="mdi-person"
+                                    name="buyer"
+                                    label="name"
+                                    id="buyer"
+                                    v-model="buyer"
+                                    type="text"
+                                    required
+                                    >
+                                </v-text-field>
+                            </v-flex>
+                        </v-layout>
+                        
                         
                         <v-layout row>
                             <v-flex xs12 offeset-sm3>
@@ -74,9 +96,18 @@
                         </v-layout>
 
                         <v-layout row>
+                            <v-flex xs12 class="text-xs-center">
+                                <v-btn color="yellow" type="submit">
+                                    Get amount</v-btn>
+
+                            </v-flex>
+                        </v-layout>
+
+
+                        <v-layout row>
                             <v-flex xs12 offeset-sm3>
                                 <v-text-field
-                                prepend-icon="person"
+                                prepend-icon="mdi-person"
                                     name="fullamount"
                                     label="Money"
                                     id="fullamount"
@@ -89,14 +120,7 @@
 
                        
 
-                        <v-layout row>
-                            <v-flex xs12 class="text-xs-center">
-                                <v-btn color="yellow" type="submit">
-                                    BUY</v-btn>
-
-                            </v-flex>
-                        </v-layout>
-
+                        
                         
                          
 
@@ -136,7 +160,8 @@ export default {
         number: '',
         city:'',
         fullamount:'',
-        price: '42'
+        price: '42',
+        buyer: ''
     }),
 
         
@@ -149,6 +174,8 @@ export default {
                 console.log(this.number);
                 console.log(this.city);
                 console.log(this.fullamount);
+
+                this.$store.dispatch('createneworder', {item:this.item, buyer:this.buyer, quantity:this.number, price:this.price, amount:this.fullamount, city:this.city})
             },
 
             sum() {
