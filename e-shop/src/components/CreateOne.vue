@@ -6,7 +6,7 @@
       
 
          <v-hover v-slot:default="{ hover }">
-        <v-card :elevation="hover ? 19 : 1" :color="hover ? 'green' : 'white'" >
+        <v-card :elevation="hover ? 19 : 1" :color="hover ? 'green' : 'pink'" >
             <v-card-text>
                 <v-container>  
                     
@@ -79,6 +79,19 @@
                                 </v-col>
                             </v-flex>
                         </v-layout>
+
+                        <v-col cols="12">
+                         <v-textarea
+                          v-model="address"
+                          color="teal"
+                         >
+                       <template v-slot:label>
+                         <div>
+                          Address <small>(delivery)</small>
+                         </div>
+                       </template>
+                        </v-textarea>
+                        </v-col>
 
                         <v-layout row>
                             <v-flex xs12 offeset-sm3>
@@ -166,7 +179,8 @@ export default {
         city:'',
         fullamount:'',
         price: '42',
-        buyer: ''
+        buyer: '',
+        address: ''
     }),
 
         
@@ -180,7 +194,7 @@ export default {
                 console.log(this.city);
                 console.log(this.fullamount);
 
-                this.$store.dispatch('createneworder', {item:this.item, buyer:this.buyer, quantity:this.number, price:this.price, amount:this.fullamount, city:this.city})
+                this.$store.dispatch('createneworder', {item:this.item, buyer:this.buyer, quantity:this.number, price:this.price, amount:this.fullamount, address:this.address, city:this.city})
             },
 
             sum() {
@@ -205,7 +219,7 @@ export default {
 }
 
 .main {
-    min-height: 900px
+    min-height: 1200px
 }
 
 </style>

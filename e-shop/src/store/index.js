@@ -18,7 +18,7 @@ export default new Vuex.Store({
         quantity: pay.quantity,
         price: pay.price,
         amount: pay.amount,
-      //  address: pay.address,
+        address: pay.address,
         city: pay.city
       }
 
