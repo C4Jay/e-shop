@@ -8,7 +8,7 @@
       <mdb-row>
         <mdb-col md="12">
           <div class="mb-5 flex-center">
-            <a href="https://www.facebook.com"><i class="fab fa-facebook fa-lg white-text mr-md-5 mr-3 fa-2x"> </i></a>
+            <a href="https://www.facebook.com"><i class="fab fa-facebook fa-lg purple-text mr-md-5 mr-3 fa-2x"> </i></a>
             <a href="https://www.twitter.com"><i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i></a>
             <a href="https://aboutme.google.com/u/0/?referer=gplus"><i class="fab fa-google-plus fa-lg white-text mr-md-5 mr-3 fa-2x"> </i></a>
             <a href="https://www.linkedin.com/home/?originalSubdomain=lk"><i class="fab fa-linkedin-in fa-lg white-text mr-md-5 mr-3 fa-2x"> </i></a>
@@ -35,7 +35,7 @@
             <v-flex class="text-center">
       <mdb-container fluid>
     
-        &copy; 2018 Copyright: <a href="https://www.MDBootstrap.com"> tref.com </a>
+        &copy; 2019 Copyright: <a href="https://www.MDBootstrap.com"> c4jay.com </a>
           
       </mdb-container>
             </v-flex>
@@ -63,9 +63,11 @@
 <style>
 /*@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap');*/
 .foot {
-    background: linear-gradient(to bottom , #21211f,#32332f);
+     background: linear-gradient(to bottom ,white,yellow );
+ /* 
+    background: yellow; */
 
-    color: azure;
+    color: plum;
 }
 </style>
 
