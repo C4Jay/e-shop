@@ -5,10 +5,11 @@ import store from './store'
 import vuetify from './plugins/vuetify';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import firebase from 'firebase';
-
-import Vuetify from 'vuetify/lib'
+import Vuetify from 'vuetify/lib';
+import ImageUploader from 'vue-image-upload-resize';
 
 Vue.use(Vuetify)
+Vue.use(ImageUploader);
 
 export default new Vuetify({
   icons: {

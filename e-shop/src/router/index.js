@@ -29,6 +29,17 @@ const routes = [
   name: 'createone',
   component: () => import('../components/CreateOne.vue')
 },
+{
+  path: '/createstock',
+  name: 'createstock',
+  component: () => import('../components/CreateStock.vue')
+},
+
+{
+  path: '/img',
+  name: 'img',
+  component: () => import('../components/Img.vue')
+},
 ]
 
 const router = new VueRouter({

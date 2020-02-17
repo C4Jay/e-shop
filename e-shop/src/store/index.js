@@ -34,6 +34,29 @@ export default new Vuex.Store({
       .catch((error) => {
         console.log(error)
       })
+    } ,
+
+
+    createnewstock ({ commit }, pay) {
+      const item = {
+        item: pay.item,
+        quantity: pay.quantity,
+        price: pay.price,
+        description: pay.description,
+      }
+
+      firebase.database().ref('stock').push(item)
+      .then((data) => {
+        const key = data.key
+
+        commit('createnewstock', {
+          ...item,
+          id: key
+        })
+      })
+      .catch((error) => {
+        console.log(error)
+      })
     } 
 
 

@@ -6,38 +6,86 @@
       
 
          <v-hover v-slot:default="{ hover }">
-        <v-card :elevation="hover ? 19 : 1" :color="hover ? 'green' : 'pink'"  class="mr-1 ml-1">
+        <v-card :elevation="hover ? 19 : 1" :color="hover ? 'green' : '#d65899'"  class="mr-1 ml-1">
             <v-card-text>
                 <v-container>  
                     
                     <v-layout row>
-                        <v-flex xs12 class="text-center display-1 font-weight-black my-5">Place Order</v-flex>
+                        <v-flex xs12 class="text-center display-1 font-weight-black my-5">Post Item</v-flex>
                     </v-layout>
 
 
                     <v-form @submit.prevent="sum">
-                        
-                        <!-- <v-layout row>
+
+                        <v-layout row>
                             <v-flex xs12 offeset-sm3>
                                 <v-text-field
-                                prepend-icon="person"
+                                    name="item"
+                                    label="Name of the item"
+                                    id="item"
+                                    v-model="item"
+                                    
+                                    >
+                                </v-text-field>
+                            </v-flex>
+                        </v-layout>
+                        
+                        <v-layout row>
+                            <v-flex xs12 sm6 offset-sm3>
+                         <div>
+      <image-uploader
+        :preview="true"
+        :className="['fileinput', { 'fileinput--loaded': hasImage }]"
+        capture="environment"
+        :debug="1"
+        doNotResize="gif"
+        :autoRotate="true"
+        outputFormat="string"
+        @input="setImage"
+      >
+        <label for="fileInput" slot="upload-label">
+          <figure>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              viewBox="0 0 32 32"
+            >
+              <path
+                class="path1"
+                d="M9.5 19c0 3.59 2.91 6.5 6.5 6.5s6.5-2.91 6.5-6.5-2.91-6.5-6.5-6.5-6.5 2.91-6.5 6.5zM30 8h-7c-0.5-2-1-4-3-4h-8c-2 0-2.5 2-3 4h-7c-1.1 0-2 0.9-2 2v18c0 1.1 0.9 2 2 2h28c1.1 0 2-0.9 2-2v-18c0-1.1-0.9-2-2-2zM16 27.875c-4.902 0-8.875-3.973-8.875-8.875s3.973-8.875 8.875-8.875c4.902 0 8.875 3.973 8.875 8.875s-3.973 8.875-8.875 8.875zM30 14h-4v-2h4v2z"
+              ></path>
+            </svg>
+          </figure>
+          <span class="upload-caption">{{
+            hasImage ? "Replace" : "Click to upload"
+          }}</span>
+        </label>
+      </image-uploader>
+    </div>
+                            </v-flex>
+                        </v-layout>
+
+                        <v-layout row>
+                            <v-flex xs12 offeset-sm3>
+                                <v-text-field
                                     name="price"
-                                    label="price"
+                                    label="Price(Rs)"
                                     id="price"
                                     v-model="price"
                                     
                                     >
                                 </v-text-field>
                             </v-flex>
-                        </v-layout> -->
+                        </v-layout>
 
-                        <v-layout row>
+                       <!--  <v-layout row>
                             <v-flex xs12 offset-sm3 class="text-center">
                                 Price(01): $42
                             </v-flex>
-                        </v-layout>
+                        </v-layout> -->
 
-                        
+                        <!-- 
                         <v-layout row>
                             <v-flex xs12 offeset-sm3>
                                 <v-col class="d-flex" cols="12" sm="6">
@@ -49,7 +97,7 @@
                                     ></v-select>
                                 </v-col>
                             </v-flex>
-                        </v-layout>
+                        </v-layout> -->
 
                         
                         
@@ -67,7 +115,7 @@
                             </v-flex>
                         </v-layout>
                         
-                        <v-layout row>
+                       <!--  <v-layout row>
                             <v-flex xs12 offeset-sm3>
                                 <v-text-field
                                 prepend-icon="mdi-person"
@@ -81,20 +129,20 @@
                                 </v-text-field>
                             </v-flex>
                         </v-layout>
-                        
+                        --> 
                         <v-col cols="12">
                          <v-textarea
-                          v-model="address"
+                          v-model="description"
                           color="teal"
                          >
                        <template v-slot:label>
                          <div>
-                          Address <small>(delivery)</small>
+                          description <small>(optional)</small>
                          </div>
                        </template>
                         </v-textarea>
                         </v-col>
-
+<!-- 
                         <v-layout row>
                             <v-flex xs12 offeset-sm3>
                                 <v-col class="d-flex" cols="12" sm="6">
@@ -106,9 +154,9 @@
                                     ></v-select>
                                 </v-col>
                             </v-flex>
-                        </v-layout>
+                        </v-layout> -->
 
-                        <v-layout row>
+   <!--                      <v-layout row>
                             <v-flex xs12 class="text-xs-center">
                                 <v-btn color="yellow" type="submit">
                                     Get amount</v-btn>
@@ -116,8 +164,8 @@
                             </v-flex>
                         </v-layout>
 
-
-                        <v-layout row>
+ -->
+<!--                         <v-layout row>
                             <v-flex xs12 offeset-sm3 >
                                 <v-text-field
                                 prepend-icon="mdi-person"
@@ -130,7 +178,7 @@
                                 </v-text-field>
                             </v-flex>
                         </v-layout>
-
+ -->
                          <!-- <v-container v-if="this.fullamount">
                          <v-layout row>
                             <v-flex xs12 offset-sm3 class="display-1 font-weight-black">
@@ -142,7 +190,7 @@
                            <v-layout row>
                             <v-flex xs12 class="text-xs-center">
                                 <v-btn color="yellow" @click="create">
-                                    Place Order</v-btn>
+                                    Publish</v-btn>
 
                             </v-flex>
                         </v-layout>
@@ -174,7 +222,7 @@
 <script>
 
 export default {
-    name: 'SignIn',
+    name: 'CreateStock',
 
     data: () => ({
 
@@ -188,9 +236,13 @@ export default {
         number: '',
         city:'',
         fullamount:'',
-        price: '42',
+        price: '',
         buyer: '',
-        address: ''
+        address: '',
+        description: '',
+          hasImage: false,
+      img: null,
+      imgstringfinl: null
     }),
 
         
@@ -204,13 +256,25 @@ export default {
                 console.log(this.city);
                 console.log(this.fullamount);
  */
-                this.$store.dispatch('createneworder', {item:this.item, buyer:this.buyer, quantity:this.number, price:this.price, amount:this.fullamount, address:this.address, city:this.city})
+                this.$store.dispatch('createnewstock', {item:this.item, quantity:this.number, price:this.price, description:this.description, img:this.imgstringfinl})
             },
 
             sum() {
               this.fullamount = (this.number * 42);
               
-            }
+            },
+
+
+        
+        setImage: function(output) {
+        this.hasImage = true;
+        this.img = output;
+     // console.log('Info', output.info)
+      //console.log('Exif', output.exif)
+
+        this.imgstringfinl = this.img.replace('data:image/jpeg;base64,', '')
+     // console.log(this.img)
+    },
 
 
 

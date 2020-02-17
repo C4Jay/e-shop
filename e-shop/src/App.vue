@@ -2,8 +2,8 @@
   <v-app>
 
     
-  <app-navigation></app-navigation> 
-   
+ <!-- <app-navigation></app-navigation> 
+   -->
       
         <v-content transition="slide-x-transition">
             <router-view></router-view>
@@ -15,7 +15,7 @@
 
 <script>
 import HomeFoot from './components/HomeFoot';
-import AppNavigation from './components/AppNavigation';
+//import AppNavigation from './components/AppNavigation';
 //import HomeFoot1 from './components/HomeFoot1';
 
 export default {
@@ -23,7 +23,7 @@ export default {
 
   components: {
     HomeFoot,
-    AppNavigation
+  //  AppNavigation
   //  HomeFoot1
 
   },
