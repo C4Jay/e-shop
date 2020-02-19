@@ -40,6 +40,9 @@ new Vue({
     appId: "1:306117970623:web:897bf354350bbc7037940a",
     measurementId: "G-EQ5QSQG2F2"
     })
+
+    
+    this.$store.dispatch('stocksfetch')
   }
 
 }).$mount('#app')

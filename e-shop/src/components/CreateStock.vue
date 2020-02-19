@@ -30,11 +30,11 @@
                             </v-flex>
                         </v-layout>
                         
-                        <v-layout row>
+                         <v-layout row>
                             <v-flex xs12 sm6 offset-sm3>
                          <div>
       <image-uploader
-        :preview="true"
+        :preview="false"
         :className="['fileinput', { 'fileinput--loaded': hasImage }]"
         capture="environment"
         :debug="1"
@@ -65,6 +65,26 @@
     </div>
                             </v-flex>
                         </v-layout>
+ 
+                     <!--    <v-layout row>
+                            <v-flex xs12 sm6>
+                                <v-btn @click="onPickFile">Set photo</v-btn>
+                                <input type="file" 
+                                style="display: none" 
+                                ref="inputFile" 
+                                accept="image/*"
+                                @change="onFilePicked">
+                            </v-flex>
+                        </v-layout> -->
+
+                        <v-container v-if="imgstringfinl">
+
+                        <v-layout row>
+                            <v-flex xs12 sm6>
+                                <v-img :src="imgstringfinl"></v-img>
+                            </v-flex>
+                        </v-layout>
+                        </v-container>
 
                         <v-layout row>
                             <v-flex xs12 offeset-sm3>
@@ -242,7 +262,8 @@ export default {
         description: '',
           hasImage: false,
       img: null,
-      imgstringfinl: null
+      imgstringfinl: null,
+      imageurl: ''
     }),
 
         
@@ -257,6 +278,7 @@ export default {
                 console.log(this.fullamount);
  */
                 this.$store.dispatch('createnewstock', {item:this.item, quantity:this.number, price:this.price, description:this.description, img:this.imgstringfinl})
+                this.$router.push('/itemview')
             },
 
             sum() {
@@ -271,10 +293,27 @@ export default {
         this.img = output;
      // console.log('Info', output.info)
       //console.log('Exif', output.exif)
+      this.imgstringfinl = this.img
 
-        this.imgstringfinl = this.img.replace('data:image/jpeg;base64,', '')
+     //   this.imgstringfinl = this.img.replace('data:image/jpeg;base64,', '')
      // console.log(this.img)
     },
+
+    onPickFile() {
+        this.$refs.inputFile.click()
+    },
+
+    onFilePicked (event) {
+        const files = event.target.files
+        let filename = files[0].filename;
+        if (filename.lastIndexOf('.') <= 0) {
+            return alert("not valid")
+        }
+        const fileReader = new FileReader()
+        fileReader.addEventListner('load', () => {
+            this.imageUrl = fileReader.result
+        })
+    }
 
 
 
@@ -293,7 +332,7 @@ export default {
 }
 
 .main {
-    min-height: 1200px
+    min-height: 1296px
 }
 
 </style>

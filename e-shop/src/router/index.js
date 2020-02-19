@@ -36,9 +36,9 @@ const routes = [
 },
 
 {
-  path: '/img',
-  name: 'img',
-  component: () => import('../components/Img.vue')
+  path: '/itemview',
+  name: 'itemview',
+  component: () => import('../components/ItemView.vue')
 },
 ]
 

@@ -6,8 +6,22 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+
+    stocks: []
+
   },
   mutations: {
+
+    createnewstock (state, pay) {
+      state.stocks.push(pay)
+    },
+
+    stockset (state, pay) {
+      state.stocks = pay
+    }
+
+
+
   },
   actions: {
 
@@ -43,6 +57,7 @@ export default new Vuex.Store({
         quantity: pay.quantity,
         price: pay.price,
         description: pay.description,
+        img: pay.img
       }
 
       firebase.database().ref('stock').push(item)
@@ -57,10 +72,42 @@ export default new Vuex.Store({
       .catch((error) => {
         console.log(error)
       })
-    } 
+    },
+    
+    stocksfetch ({commit}) {
+      firebase.database().ref('stock').once('value')
+      .then((data) => {
+          const stock = []
+          const obj = data.val()
+          for(let key in obj) {
+              stock.push({
+                  id: key,
+                  item: obj[key].item,
+                  price: obj[key].price,
+                  img: obj[key].img,
+                  quantity: obj[key].quantity,
+                  description: obj[key].description,
+              })
+          }
+          commit('stockset',stock)
+      })
+      .catch(
+          (error) => {
+              console.log(error)
+          }
+      )
+  },
+
 
 
   },
   modules: {
+  },
+
+  getters: {
+
+    stocks (state) {
+      return state.stocks
+    }
   }
 })
